@@ -1,0 +1,143 @@
+.no-items-on-sell {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #cccccc;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.no-items-on-sell-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.item-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+
+.item {
+  flex: 1 1 calc(25% - 15px);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.item-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  max-width: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.item img {
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000 !important;
+  margin-bottom: 5px;
+}
+
+.item-category span,
+.item-price strong,
+.item-owner strong,
+.item-date strong {
+  color: #000000;
+  font-weight: bold;
+}
+
+.item-description,
+.item-state,
+.item-quantity,
+.item-category,
+.item-price,
+.item-owner,
+.item-date {
+  font-size: 14px;
+  color: #000000;
+  margin: 3px 0;
+}
+
+.note {
+  font-size: 12px;
+  color: #000000;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pagination-btn {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

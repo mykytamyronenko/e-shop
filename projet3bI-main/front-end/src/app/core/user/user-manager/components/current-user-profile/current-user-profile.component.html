@@ -1,0 +1,19 @@
+<div *ngIf="user; else loading" class="user-profile-container">
+  <app-edit-user-profile-form
+    [user]="user"
+    (userUpdated)="updateUser($event)"
+    class="edit-user-form">
+  </app-edit-user-profile-form>
+</div>
+<div class="user-info">
+  <p class="rate-score">
+    <strong>Your Rate Score:</strong> {{ score }}
+  </p>
+</div>
+
+<ng-template #loading>
+  <div class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading user profile...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,21 @@
+<ul *ngIf="memberships.length; else noMemberships" class="memberships-list">
+  <li *ngFor="let membership of memberships; let i = index" class="membership-item">
+    <div class="membership-header">
+      <p class="membership-title">Membership: {{ membership.name }}</p>
+      <p class="membership-price">Price: {{ membership.price }}€</p>
+    </div>
+    <div class="membership-details">
+      <p><strong>Discount on commission:</strong> {{ membership.discountPercentage * 100 }}%</p>
+      <p><strong>Description:</strong> {{ membership.description }}</p>
+      <p><strong>Duration:</strong> 30 days</p>
+    </div>
+    <app-users-memberships-manager class="membership-manager" (click)="emitBuyingMembership(membership, i)"></app-users-memberships-manager>
+    <hr class="membership-separator">
+  </li>
+</ul>
+
+<ng-template #noMemberships>
+  <div class="no-memberships-message">
+    404 memberships not found...
+  </div>
+</ng-template>

@@ -1,0 +1,75 @@
+.trade-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.trade-table th {
+  background-color: #6a5acd;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
+  border: 1px solid #ddd;
+}
+
+.trade-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+.trade-table tr:nth-child(odd) {
+  background-color: #cccccc;
+}
+
+.trade-table tr:nth-child(even) {
+  background-color: #cccccc;
+}
+
+.trade-table tr:hover {
+  background-color: #cccccc;
+}
+
+.trade-table {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.trade-table td, .trade-table th {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .trade-table th, .trade-table td {
+    padding: 8px;
+  }
+
+  .trade-table {
+    font-size: 12px;
+  }
+}
+
+.variables-table {
+  color: #000;
+  font-weight: bold;
+}
+
+.no-trade {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #cccccc;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.no-trade-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}

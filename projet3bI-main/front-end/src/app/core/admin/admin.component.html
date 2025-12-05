@@ -1,0 +1,11 @@
+<div>
+  <app-create-admin-form (userCreated)="createAdmin($event)"></app-create-admin-form>
+</div>
+<h2 style="text-align: center">Users list:</h2>
+<div>
+  <app-user-list [users]="usersAdmin"></app-user-list>
+</div>
+<h2 style="text-align: center">Articles list:</h2>
+<div>
+  <app-admin-article-list></app-admin-article-list>
+</div>

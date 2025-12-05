@@ -1,0 +1,27 @@
+<div class="container">
+  <div *ngFor="let row of chunkedPaginatedItems(); let rowIndex = index">
+    <div class="row">
+      <div *ngFor="let item of row; let colIndex = index" class="item">
+        <img
+          [src]="getImageUrl(item.mainImageUrl)"
+          alt="Article Image">        <h3>Title : {{ item.title }}</h3>
+        <p>Category : {{item.category}}</p>
+        <p>Description : {{ item.description }}</p>
+        <p>Price : {{item.price}}€</p>
+        <p>State : {{item.state}}</p>
+        <p>Quantity : {{item.quantity}}</p>
+        <p>Status : {{item.status}}</p>
+        <p>Listed for sale on {{ item.createdAt | date:'dd/MM/yyyy' }}</p>
+        <button class="btn btn-purple btn-animate" (click)="removeArticle((currentPage - 1) * itemsPerPage + colIndex + rowIndex * itemsPerRow)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button *ngFor="let page of [].constructor(totalPages); let i = index"
+          (click)="goToPage(i + 1)"
+          [disabled]="currentPage === (i + 1)">
+    {{ i + 1 }}
+  </button>
+</div>

@@ -1,0 +1,48 @@
+<section class="profile-section">
+  <h2>Your Profile</h2>
+  <div class="profile-content">
+    <app-current-user-profile></app-current-user-profile>
+  </div>
+</section>
+
+<section class="membership-section">
+  <h2>Your Membership Details</h2>
+  <div class="membership-content">
+    <app-subscription-display></app-subscription-display>
+  </div>
+</section>
+
+<section class="sell-section">
+  <h2>Put an Item Up for Sale</h2>
+  <div class="sell-button-container">
+    <button type="submit" class="btn btn-purple btn-animate" routerLink="/sell-page">Sell an Article</button>
+  </div>
+</section>
+
+<section class="history-section">
+  <h2>Your Purchase History</h2>
+  <div class="history-content">
+    <app-transaction-history></app-transaction-history>
+  </div>
+</section>
+
+<section class="sell-history-section">
+  <h2>Your Sell History</h2>
+  <div class="sell-history-content">
+    <app-sell-history></app-sell-history>
+  </div>
+</section>
+
+<section class="on-sale-section">
+  <h2>Articles You Have on Sale</h2>
+  <div class="on-sale-content">
+    <app-owned-by-user-article-list></app-owned-by-user-article-list>
+  </div>
+</section>
+
+<section class="trade-section">
+  <h2>Trades Other Users Want</h2>
+  <div class="trade-content">
+    <app-trade-receiver></app-trade-receiver>
+  </div>
+</section>

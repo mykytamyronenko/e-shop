@@ -1,0 +1,74 @@
+nav {
+  padding: 15px 30px;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+:host-context(.dark-theme) nav {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+:host-context(.dark-theme) nav ul li a {
+  color: white;
+}
+
+:host-context(.dark-theme) nav ul li a:hover {
+  color: #bb86fc;
+}
+
+:host-context(.light-theme) nav {
+  background-color: #f8f8f8;
+  color: black;
+}
+
+:host-context(.light-theme) nav ul li a {
+  color: black;
+}
+
+:host-context(.light-theme) nav ul li a:hover {
+  color: #6200ea;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 20px;
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #6200ea;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+

@@ -1,0 +1,55 @@
+<h1 class="put-on-sale-title">Selling an article:</h1>
+<form [formGroup]="form" (submit)="submitForm()" class="put-on-sale-form">
+    <div class="form-group">
+      <label>
+        Name <input type="text" formControlName="name" class="form-input" placeholder="Name">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Description <input type="text" formControlName="description" class="form-input" placeholder="Description">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Price<input type="number" formControlName="price" class="form-input" placeholder="Price">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Category:
+        <select formControlName="category" class="form-input">
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>State :</label>
+      <div class="radio-group">
+      <label>
+        New: <input type="radio" formControlName="state" value="new">
+      </label>
+      <label>
+        Used: <input type="radio" formControlName="state" value="used">
+      </label>
+      </div>
+    </div>
+  <div class="form-group">
+    <label>
+      <input type="number" formControlName="quantity" class="form-input" placeholder="Quantity">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Image:  <input type="file"  (change)="onFileChange($event)" class="file-input">
+
+
+    </label>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+  <button type="reset" class="btn btn-purple btn-animate">Reset</button>
+  <button type="submit" class="btn btn-purple btn-animate" [disabled]="form.invalid">Add article</button>
+  </div>
+</form>
+<hr>
+

@@ -1,0 +1,65 @@
+<h1>Create users:</h1>
+<form [formGroup]="form" (submit)="submitForm()" class="user-form">
+  <section formGroupName="main">
+    <div class="form-group">
+      <label>
+        Username: <input type="text" formControlName="username">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Email: <input type="email" formControlName="email">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Password: <input type="password" formControlName="password">
+      </label>
+    </div>
+  </section>
+  <section formGroupName="other">
+    <div class="form-group">
+      Role?
+      <label>
+        User: <input type="radio" formControlName="role" value="connected_user">
+      </label>
+      <label>
+        Administrator: <input type="radio" formControlName="role" value="admin">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Profile picture: <input type="file" (change)="onFileChange($event)">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Rating:
+        <select formControlName="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>Status?</label>
+      <div class="radio-group">
+        <label>
+          Active: <input type="radio" formControlName="status" value="active">
+        </label>
+        <label>
+          Suspended: <input type="radio" formControlName="status" value="suspended">
+        </label>
+        <label>
+          Deleted: <input type="radio" formControlName="status" value="deleted">
+        </label>
+      </div>
+    </div>
+  </section>
+  <button type="reset" class="btn btn-purple btn-animate">Reset</button>
+  <button type="submit" class="btn btn-purple btn-animate" [disabled]="form.invalid">Add user</button>
+</form>
+<hr>

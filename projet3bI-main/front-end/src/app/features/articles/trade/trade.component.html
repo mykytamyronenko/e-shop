@@ -1,0 +1,41 @@
+<h1 class="page-title">Please select the items you want to trade</h1>
+<div class="topTitles">
+  <div class="left-title"><h2>Your Items</h2></div>
+  <div class="right-title"><h2>The item you want</h2></div>
+</div>
+<hr>
+<div class="whole-page">
+  <div class="container">
+    <div *ngFor="let row of chunkedPaginatedItems(); let rowIndex = index">
+      <div class="row">
+        <div *ngFor="let item of row; let colIndex = index" class="item" [ngClass]="{active:isActive(rowIndex, colIndex)}" (click)="toggleBorder(rowIndex, colIndex)">
+          <img [src]="getImageUrl(item.mainImageUrl)" alt="Article Image" class="item-image">
+          <h3 class="item-title" style="color: #8e8e8e">Title: {{ item.title }}</h3>
+          <p>Category: {{item.category}}</p>
+          <p>Description: {{ item.description }}</p>
+          <p>Price: {{item.price}}€</p>
+          <p>State: {{item.state}}</p>
+          <p>Status: {{item.status}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-container">
+    <div>
+      <h3>Selected Article for Trade</h3>
+      <div *ngIf="wantedArticle; else noArticle">
+        <img [src]="getImageUrl(wantedArticle.mainImageUrl)" alt="Article Image" class="item-image">
+        <p style="font-weight: bold">Title: {{ wantedArticle.title }}</p>
+        <p>Price: {{ wantedArticle.price }}€</p>
+      </div>
+      <ng-template #noArticle>
+        <p>No article selected.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<div style="text-align: center; padding: 10px">
+  <button class="btn btn-purple btn-animate" (click)="validateTrade()">Validate</button>
+</div>

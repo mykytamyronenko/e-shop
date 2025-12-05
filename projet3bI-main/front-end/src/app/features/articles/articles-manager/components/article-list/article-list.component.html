@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="filter-section">
+    <label for="categoryFilter" class="filter-label">Filter by Category:</label>
+    <select id="categoryFilter" class="filter-select" (change)="filterByCategory($event)">
+      <option value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+
+  <div class="item-grid">
+    <div *ngFor="let row of chunkedPaginatedItems(); let rowIndex = index" class="row">
+      <div *ngFor="let item of row; let colIndex = index" class="item">
+        <img [src]="getImageUrl(item.mainImageUrl)" alt="Article Image" class="item-image">
+        <h3 class="item-title">{{ item.title }}</h3>
+        <p class="item-category">Category: <span>{{ item.category }}</span></p>
+        <p class="item-description">Description: {{ item.description }}</p>
+        <p class="item-price">Price: <strong>{{item.price}}€</strong> <span class="note">  (commission not included)</span></p>
+        <p class="item-state">State: {{item.state}}</p>
+        <p class="item-quantity">Available: <strong>{{item.quantity}}</strong></p>
+        <p class="item-owner">Owned by: <strong>{{ getUsername(item.userId) | async }}</strong></p>
+        <p class="item-date">On sale since: <strong>{{ item.createdAt | date:'dd/MM/yyyy' }}</strong></p>
+
+        <div class="actions">
+          <app-transactions-manager
+            (click)="emitArticleTransaction(item, colIndex + rowIndex * itemsPerRow)">
+          </app-transactions-manager>
+          <button class="btn btn-trade" (click)="navigateToTrade(item)">Trade</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button *ngFor="let page of [].constructor(totalPages); let i = index"
+            (click)="goToPage(i + 1)"
+            [disabled]="currentPage === (i + 1)"
+            class="pagination-btn">
+      {{ i + 1 }}
+    </button>
+  </div>
+</div>

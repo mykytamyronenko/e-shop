@@ -1,0 +1,32 @@
+<div class="search-container">
+  <input
+    type="text"
+    id="userSearch"
+    [(ngModel)]="searchInput"
+    placeholder="Enter a username"
+    class="search-input"
+  />
+  <button
+    (click)="submitSearch(searchInput)"
+    class="search-button"
+  >
+    Search
+  </button>
+</div>
+
+<div class="find-user-container" *ngIf="isUserFound">
+  <div class="user-card">
+    <img
+      [src]="profileImageUrl"
+      class="profile-image"
+      alt="User Image"
+      (error)="profileImageUrl='test.png'"
+    />
+    <div class="user-details">
+      <h1 class="username" style="text-align: center">Username: {{userFound?.username}}</h1>
+      <p class="userFound-rating">Score: {{userFound?.rating}}</p>
+      <p class="userFound-role">Role: {{userFound?.role}}</p>
+      <p class="userFound-status">Status: {{userFound?.status}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+@if (transactions.length) {
+  <table class="transaction-table">
+    <thead>
+    <tr>
+      <th>Article</th>
+      <th>Price</th>
+      <th>Commission</th>
+      <th>Date</th>
+      <th>Buyer</th>
+      <th>Total price</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (transaction of transactions; track $index) {
+        <tr class="variables-table">
+          <td>{{ getTitle(transaction.articleId) | async }}</td>
+          <td>{{transaction.price - transaction.commission}}</td>
+          <td>{{transaction.commission}}</td>
+          <td>{{ transaction.transactionDate | date:'dd/MM/yyyy' }} at
+            {{ transaction.transactionDate | date:'HH:mm' }}</td>
+          <td>{{ getUsername(transaction.buyerId) | async }}</td>
+          <td>{{transaction.price}}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+} @else {
+  <div class="no-sell">
+    <p class="no-sell-text">You haven't sold any items yet...</p>
+  </div>
+}

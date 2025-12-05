@@ -1,0 +1,98 @@
+.UserMembership-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.UserMembership-table th {
+  background-color: #6a5acd;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
+  border: 1px solid #ddd;
+}
+
+.UserMembership-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+.UserMembership-table tr:nth-child(odd) {
+  background-color: #cccccc;
+}
+
+.UserMembership-table tr:nth-child(even) {
+  background-color: #cccccc;
+}
+
+.UserMembership-table tr:hover {
+  background-color: #cccccc;
+}
+
+.UserMembership-table {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.UserMembership-table td, .UserMembership-table th {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .UserMembership-table th, .UserMembership-table td {
+    padding: 8px;
+  }
+
+  .UserMembership-table {
+    font-size: 12px;
+  }
+}
+
+.variables-table {
+  color: #000;
+  font-weight: bold;
+}
+
+.no-membership {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #cccccc;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.no-membership-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.no-membership-highlight {
+  color: #6a5acd;
+  font-weight: bold;
+}
+
+.subscribe-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #6a5acd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subscribe-button:hover {
+  background-color: #483d8b;
+  transform: scale(1.05);
+}
+

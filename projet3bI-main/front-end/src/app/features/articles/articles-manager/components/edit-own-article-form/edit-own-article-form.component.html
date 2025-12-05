@@ -1,0 +1,88 @@
+<!--<form #formElement="ngForm" (submit)="submitChange()" class="edit-article-form">
+  <div class="form-group">
+    <label>
+      Title: <input type="text" [(ngModel)]="ownArticle.title" name="title" required>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Description: <input type="text" [(ngModel)]="ownArticle.description" name="description" required>
+    </label>
+  </div>
+  <div  class="form-group">
+    <label>
+      Price: <input type="text" [(ngModel)]="ownArticle.price" name="price" required>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Category:
+      <select [(ngModel)]="ownArticle.category" name="category">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>State :</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" [(ngModel)]="ownArticle.state" name="state" value="new" required> New
+      </label>
+      <label>
+        <input type="radio" [(ngModel)]="ownArticle.state" name="state" value="used" required> Used
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>
+      Quantity: <input type="number" [(ngModel)]="ownArticle.quantity" name="quantity" required>
+    </label>
+  </div>
+  <div  style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+    <button type="submit" class="btn btn-purple btn-animate" [disabled]="formElement.invalid"></button>
+  </div>
+</form>-->
+<form #formElement="ngForm" (submit)="submitChange()" class="edit-article-form">
+  <div class="form-group">
+    <label>
+      Title: <input type="text" [(ngModel)]="ownArticle.title" name="title" class="form-input" required>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Description: <input type="text" [(ngModel)]="ownArticle.description" name="description" class="form-input" required>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Price: <input type="text" [(ngModel)]="ownArticle.price" name="price" class="form-input" required>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Category:
+      <select [(ngModel)]="ownArticle.category" name="category" class="form-input">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>State :</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" [(ngModel)]="ownArticle.state" name="state" value="new" required> New
+      </label>
+      <label>
+        <input type="radio" [(ngModel)]="ownArticle.state" name="state" value="used" required> Used
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>
+      Quantity: <input type="number" [(ngModel)]="ownArticle.quantity" name="quantity" class="form-input" required>
+    </label>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+    <button type="submit" class="btn btn-purple btn-animate" [disabled]="formElement.invalid">Submit</button>
+  </div>
+</form>

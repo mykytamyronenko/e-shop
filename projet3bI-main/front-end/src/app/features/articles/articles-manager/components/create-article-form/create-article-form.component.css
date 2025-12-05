@@ -1,0 +1,108 @@
+.put-on-sale-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  color: #A9A9A9;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #cdcdcd;
+  color: #fff;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  background-color: #6200ea;
+  border-radius: 8px;
+  color: white;
+}
+
+.file-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #cdcdcd;
+  color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.file-input:hover {
+  background-color: #6200ea;
+}
+
+.file-input:focus {
+  outline: none;
+  background-color: #8e24aa;
+  border-radius: 8px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  justify-content: left;
+  color: #fff;
+}
+
+.radio-group label {
+  font-size: 1.1rem;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #fff;
+  margin-top: 40px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .put-on-sale-form {
+    padding: 15px;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .form-input {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

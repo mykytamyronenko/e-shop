@@ -1,0 +1,51 @@
+<div *ngIf="trades.length > 0; else noTrades">
+  <table class="trade-table">
+    <thead>
+    <tr>
+      <th>Trade ID</th>
+      <th>Trader</th>
+      <th>Receiver</th>
+      <th>Articles of the trader</th>
+      <th>Article of the receiver</th>
+      <th>Trade Date</th>
+      <th>Status</th>
+      <th>Accept/Decline ?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let trade of trades; let i = index" class="variables-table">
+      <td>{{ trade.tradeId }}</td>
+      <td>{{ getUsername(trade.tradeId) | async }}</td>
+      <td>{{ getUsername(trade.receiverId) | async }}</td>
+      <td>
+        <div *ngIf="trade.traderArticlesIds">
+          <div *ngIf="getTitle2(trade.traderArticlesIds) | async as titles">
+            <div *ngFor="let title of titles; let i = index">
+              <p class="variables-table">{{ title }}</p>
+            </div>
+            <div *ngIf="!titles || titles.length === 0">
+              No titles available.
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>{{ getTitle(trade.receiverArticleId) | async }}</td>
+      <td>
+        {{ adjustDateByOneHour(trade.tradeDate) | date: 'dd/MM/yyyy' }} at
+        {{ adjustDateByOneHour(trade.tradeDate) | date: 'HH:mm' }}
+      </td>
+      <td>{{ trade.status }}</td>
+      <td>
+        <button (click)="acceptTrade(trade)">Accept</button>
+        <button (click)="declineTrade(trade)">Decline</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noTrades>
+  <div class="no-trade">
+    <p class="no-trade-text"> haven't received any trades yet...</p>
+  </div>
+</ng-template>
+

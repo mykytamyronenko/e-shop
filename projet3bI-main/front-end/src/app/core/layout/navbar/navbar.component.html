@@ -1,0 +1,26 @@
+<nav>
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a *ngIf="!(isLoggedIn)" routerLink="/login">Log In</a></li>
+    <li><a *ngIf="isLoggedIn" (click)="logout()">Log Out</a></li>
+    <li><a *ngIf="isLoggedAndAdmin" routerLink="/admin">Admin</a></li>
+
+    <li class="theme-toggle">
+      <input type="checkbox" (click)="toggleTheme()" [checked]="!isDarkTheme" class="checkbox" id="checkbox" value="Toggle Dark/Light Theme">
+      <label for="checkbox" class="checkbox-label">
+        <i class="fas fa-moon fa-2xs"></i>
+        <i class="fas fa-sun fa-2xs"></i>
+        <span class="ball"></span>
+      </label>
+    </li>
+
+    <li><a *ngIf="!(isLoggedIn)" routerLink="/register">Register</a></li>
+    <li *ngIf="isLoggedIn">
+      <a [routerLink]="['/profile-page', this.user.username]">
+        <img [src]="profileImageUrl" class="profile-image" alt="User Profile" (error)="onImageError()">
+      </a>
+    </li>
+    <li><a *ngIf="isLoggedIn" routerLink="/membership-page">Memberships</a></li>
+    <li><a routerLink="/find-user">Find another user</a></li>
+  </ul>
+</nav>

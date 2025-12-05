@@ -1,0 +1,60 @@
+@if (transactions.length) {
+  <table class="transaction-table">
+    <thead>
+    <tr>
+      <th>Article</th>
+      <th>Price</th>
+      <th>Commission</th>
+      <th>Date</th>
+      <th>Seller</th>
+      <th>Total price</th>
+      <th>Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (transaction of transactions; track $index) {
+        <tr class="variables-table">
+          <td>{{ getTitle(transaction.articleId) | async }}</td>
+          <td>{{transaction.price - transaction.commission}}</td>
+          <td>{{transaction.commission}}</td>
+          <td>{{ transaction.transactionDate | date:'dd/MM/yyyy' }} at
+            {{ transaction.transactionDate | date:'HH:mm' }}</td>
+          <td>{{ getUsername(transaction.sellerId) | async }}</td>
+          <td>{{transaction.price}}</td>
+
+          @if (!existingRating(transaction.sellerId)){
+          <td>
+            <div>
+              <label>
+                1<input type="radio" id="1-{{transaction.articleId}}" name="numberOfStar_{{transaction.articleId}}" value="1">
+              </label>
+              <label>
+                2<input type="radio" id="2-{{transaction.articleId}}" name="numberOfStar_{{transaction.articleId}}" value="2">
+              </label>
+              <label>
+                3<input type="radio" id="3-{{transaction.articleId}}" name="numberOfStar_{{transaction.articleId}}" value="3">
+              </label>
+              <label>
+                4<input type="radio" id="4-{{transaction.articleId}}" name="numberOfStar_{{transaction.articleId}}" value="4">
+              </label>
+              <label>
+                5<input type="radio" id="5-{{transaction.articleId}}" name="numberOfStar_{{transaction.articleId}}" value="5">
+              </label>
+              <br/>
+              Comment:
+              <input type="text" id="commentId-{{transaction.articleId}}">
+              <input type="button" (click)="sendRating(transaction.articleId, transaction.sellerId)" value="Send">
+            </div>
+          </td>
+          } @else {
+            <td><p class="variables-table">You already rated this user</p></td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+} @else {
+  <div class="no-purchase">
+    <p class="no-purchase-text">It looks like you haven't made any purchases yet. Visit the homepage to explore and buy your first item!</p>
+  </div>
+}

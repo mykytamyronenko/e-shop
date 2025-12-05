@@ -1,0 +1,30 @@
+@if (users.length) {
+  <ul class="user-list">
+    @for (user of users; track $index) {
+      <li class="user-item">
+        <div class="user-details">
+        <p>#{{user.userId}}</p>
+              <p>
+                <img [src]="getImageUrl(user.profilePicture)" alt="Article Image">
+              </p>
+              <p>Username : {{ user.username }}</p>
+              <p>Email : {{ user.email }}</p>
+              <p>Password : {{ user.password }}</p>
+              <p>Role : {{ user.role }}</p>
+              <p>MemberShip Level : {{ user.membershipLevel }}</p>
+              <p>Rating : {{ user.rating }}</p>
+              <p>Status : {{ user.status }}</p>
+              <p>Balance : {{ user.balance }}</p>
+        </div>
+        <div style="text-align: center">
+          <button type="button" class="btn btn-purple btn-animate" (click)="removeUser($index)">Delete</button>
+        </div>
+        <br>
+      </li>
+    }
+  </ul>
+} @else {
+  <div>
+    No users yet...
+  </div>
+}

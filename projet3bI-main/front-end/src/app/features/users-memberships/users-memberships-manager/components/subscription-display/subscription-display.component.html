@@ -1,0 +1,32 @@
+@if (userMemberships.length) {
+  @for (userMembership of userMemberships; track  $index) {
+    <div>
+      <table class="UserMembership-table">
+        <thead>
+        <tr>
+          <th>Membership Level</th>
+          <th>Purchase Date</th>
+          <th>Expiration Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="variables-table">
+          <td>{{ getMembershipName(userMembership.membershipId) }}</td>
+          <td>{{ userMembership.startDate | date:'dd/MM/yyyy' }} at {{userMembership.startDate | date: 'HH:mm'}}</td>
+          <td>{{ userMembership.endDate | date:'dd/MM/yyyy' }} at {{userMembership.endDate | date: 'HH:mm'}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  }
+} @else {
+  <div class="no-membership">
+    <p class="no-membership-text">
+      You currently do not have an active membership.
+      <span class="no-membership-highlight">Consider subscribing</span> to unlock exclusive benefits!
+    </p>
+    <button class="subscribe-button" (click)="navigateToMemberships()">Subscribe Now</button>
+  </div>
+
+}
+
